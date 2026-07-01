@@ -1,0 +1,26 @@
+{
+  "name": "lemgen-trending-prompts",
+  "version": "0.1.0",
+  "description": "Curated AI image and video prompts from LemGen.",
+  "type": "module",
+  "files": ["data/", "README.md", "README.zh-CN.md", "LICENSE"],
+  "scripts": {
+    "check:brand": "node scripts/check-brand-clean.mjs",
+    "stats": "node scripts/stats.mjs"
+  },
+  "keywords": [
+    "ai-prompts",
+    "image-generation",
+    "video-generation",
+    "prompt-engineering",
+    "gpt-image",
+    "nano-banana",
+    "seedance",
+    "midjourney"
+  ],
+  "author": {
+    "name": "LemGen",
+    "url": "https://lemgen.org"
+  },
+  "license": "MIT"
+}
