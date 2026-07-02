@@ -1,33 +1,45 @@
-<h1 align="center">LemGen Trending Prompts</h1>
+<h1 align="center">
+  LemGen Trending Prompts
+</h1>
 
 <p align="center">
-  <strong>面向 AI 图片/视频 Agent、MCP Server 和创意工作流的干净 JSON 提示词库。</strong>
+  <strong>面向 AI 图片/视频 Agent、MCP Server 和创意产品的干净、可追溯提示词数据集。</strong>
   <br>
-  <sub>4,533 条精选 prompt · GPT Image · Seedance · Nano Banana · Midjourney · 全部链接回 LemGen</sub>
+  <sub>4,533 条精选 prompt · GPT Image · Seedance · Nano Banana · Midjourney · 图片/视频预览 · LemGen 来源 URL</sub>
 </p>
 
 <p align="center">
   <a href="https://github.com/aithink001/lemgen-trending-prompts/actions"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/aithink001/lemgen-trending-prompts/validate.yml?branch=main&style=flat-square"></a>
+  <img alt="Dataset" src="https://img.shields.io/badge/Type-Prompt_Dataset-blue?style=flat-square">
+  <img alt="Prompts" src="https://img.shields.io/badge/Prompts-4,533-111?style=flat-square">
   <a href="https://lemgen.org"><img alt="LemGen" src="https://img.shields.io/badge/Source-LemGen-111?style=flat-square"></a>
-  <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/License-MIT-lightgrey?style=flat-square"></a>
+  <a href="LICENSE"><img alt="MIT" src="https://img.shields.io/badge/License-MIT-lightgrey?style=flat-square"></a>
+</p>
+
+<p align="center">
+  <a href="#数据集">数据集</a> ·
+  <a href="#schema">Schema</a> ·
+  <a href="#使用示例">使用示例</a> ·
+  <a href="#配套-mcp-server">MCP Server</a> ·
+  <a href="README.md">English</a>
 </p>
 
 ---
 
-## 这是什么
+## 这是什么？
 
-这是 [`lemgen-ai-design-mcp`](https://github.com/aithink001/lemgen-ai-design-mcp) 的数据层。
+这是 [`lemgen-ai-design-mcp`](https://github.com/aithink001/lemgen-ai-design-mcp) 的公开数据层。
 
-它提供一个适合 Agent 使用的 AI 图片/视频提示词 JSON 数据集。每条数据包含 prompt、模型、标签、预览媒体、热度字段，以及回到 LemGen 的来源链接。
+它提供一份适合 Agent 使用的 AI 图片/视频提示词 JSON 数据集。每条数据都保留真实创作工具需要的上下文：标题、prompt、模型、标签、预览媒体、热度字段、排序信息，以及回到 LemGen 的来源链接。
 
 适合用于：
 
-- MCP prompt search
-- AI 图片/视频灵感工具
-- prompt engineering 示例
-- 模型对比数据集
-- 创意 Agent 记忆
-- prompt packs 和画廊
+- MCP Server 的 prompt search；
+- AI 图片/视频灵感面板；
+- prompt engineering 示例和 benchmark；
+- 模型对比数据集；
+- 创意 Agent 记忆；
+- prompt packs、画廊和 SEO 内容页。
 
 ## 预览
 
@@ -39,8 +51,6 @@
 </p>
 
 ## 数据集
-
-文件：
 
 ```txt
 data/trending-prompts.json
@@ -92,11 +102,17 @@ type GalleryPrompt = {
 
 ## 使用示例
 
+导入数据：
+
 ```js
 import prompts from './data/trending-prompts.json' assert { type: 'json' };
+```
 
+筛选产品摄影 prompt：
+
+```js
 const productPrompts = prompts.filter((item) =>
-  item.categories.some((name) => /product|brand/i.test(name))
+  item.categories.some((name) => /product|brand|commercial/i.test(name))
 );
 
 console.log(productPrompts[0].prompt);
@@ -106,6 +122,7 @@ console.log(productPrompts[0].prompt);
 
 ```js
 const query = 'cinematic perfume product photography';
+
 const results = prompts.filter((item) =>
   [
     item.title,
@@ -119,33 +136,31 @@ const results = prompts.filter((item) =>
 );
 ```
 
+区分图片和视频：
+
+```js
+const imagePrompts = prompts.filter((item) => item.media_type === 'image');
+const videoPrompts = prompts.filter((item) => item.media_type === 'video');
+```
+
 ## 配套 MCP Server
 
 直接在 AI coding tools 里使用这份数据：
 
 https://github.com/aithink001/lemgen-ai-design-mcp
 
-MCP Server 提供：
-
-- `search_gallery`
-- `get_inspiration`
-- `enhance_prompt`
-- `list_models`
-- `prompt_tools`
-- `manage_preferences`
-- `generate_image`
-- `generate_video`
+MCP Server 提供搜索、完整灵感查询、模型参考、多语言提示词工具、本地偏好，以及可选的 LemGen 生成能力。
 
 ## 更新
 
-从 LemGen 主站数据库导出：
+这份数据从 LemGen 主站数据库导出：
 
 ```bash
 cd ../lemgen
 pnpm lemgen:mcp:maintain
 ```
 
-导出器会强制使用 `https://lemgen.org` 公开 URL，并在发布前执行品牌扫描。
+导出流程会保持 `https://lemgen.org` 公开 URL、校验 JSON 结构，并在发布前执行品牌扫描。
 
 ## License
 

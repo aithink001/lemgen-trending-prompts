@@ -1,36 +1,49 @@
-<h1 align="center">LemGen Trending Prompts</h1>
+<h1 align="center">
+  LemGen Trending Prompts
+</h1>
 
 <p align="center">
-  <strong>A clean JSON prompt library for AI image/video agents, MCP servers, and creative workflows.</strong>
+  <strong>A clean, source-linked prompt dataset for AI image/video agents, MCP servers, and creative products.</strong>
   <br>
-  <sub>4,533 curated prompts · GPT Image · Seedance · Nano Banana · Midjourney · source-linked to LemGen</sub>
+  <sub>4,533 curated prompts · GPT Image · Seedance · Nano Banana · Midjourney · image/video previews · LemGen source URLs</sub>
 </p>
 
 <p align="center">
   <a href="https://github.com/aithink001/lemgen-trending-prompts/actions"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/aithink001/lemgen-trending-prompts/validate.yml?branch=main&style=flat-square"></a>
+  <img alt="Dataset" src="https://img.shields.io/badge/Type-Prompt_Dataset-blue?style=flat-square">
+  <img alt="Prompts" src="https://img.shields.io/badge/Prompts-4,533-111?style=flat-square">
   <a href="https://lemgen.org"><img alt="LemGen" src="https://img.shields.io/badge/Source-LemGen-111?style=flat-square"></a>
-  <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/License-MIT-lightgrey?style=flat-square"></a>
+  <a href="LICENSE"><img alt="MIT" src="https://img.shields.io/badge/License-MIT-lightgrey?style=flat-square"></a>
+</p>
+
+<p align="center">
+  <a href="#dataset">Dataset</a> ·
+  <a href="#schema">Schema</a> ·
+  <a href="#usage">Usage</a> ·
+  <a href="#companion-mcp-server">MCP Server</a> ·
+  <a href="README.zh-CN.md">中文</a>
 </p>
 
 ---
 
 ## What Is This?
 
-This repository is the data layer behind
+This repository is the public data layer behind
 [`lemgen-ai-design-mcp`](https://github.com/aithink001/lemgen-ai-design-mcp).
 
-It provides a curated, agent-friendly JSON dataset of AI image and video
-prompts. Each entry includes the prompt text, model, tags, preview media,
-engagement fields, and a source URL back to LemGen.
+It provides an agent-friendly JSON dataset of AI image and video prompts. Each
+entry keeps enough context for real creative tooling: title, prompt, model,
+tags, preview media, engagement fields, ranking metadata, and a source URL back
+to LemGen.
 
 Use it for:
 
-- MCP prompt search
-- AI image/video inspiration tools
-- prompt engineering examples
-- model comparison datasets
-- creative agent memory
-- prompt packs and galleries
+- prompt search in MCP servers;
+- AI image/video inspiration panels;
+- prompt engineering examples and benchmarks;
+- model comparison datasets;
+- creative agent memory;
+- prompt packs, galleries, and SEO content pages.
 
 ## Preview
 
@@ -42,8 +55,6 @@ Use it for:
 </p>
 
 ## Dataset
-
-File:
 
 ```txt
 data/trending-prompts.json
@@ -95,20 +106,27 @@ type GalleryPrompt = {
 
 ## Usage
 
+Import the dataset:
+
 ```js
 import prompts from './data/trending-prompts.json' assert { type: 'json' };
+```
 
+Find product photography prompts:
+
+```js
 const productPrompts = prompts.filter((item) =>
-  item.categories.some((name) => /product|brand/i.test(name))
+  item.categories.some((name) => /product|brand|commercial/i.test(name))
 );
 
 console.log(productPrompts[0].prompt);
 ```
 
-Search by keyword:
+Search by natural language keywords:
 
 ```js
 const query = 'cinematic perfume product photography';
+
 const results = prompts.filter((item) =>
   [
     item.title,
@@ -122,34 +140,33 @@ const results = prompts.filter((item) =>
 );
 ```
 
+Split image and video prompts:
+
+```js
+const imagePrompts = prompts.filter((item) => item.media_type === 'image');
+const videoPrompts = prompts.filter((item) => item.media_type === 'video');
+```
+
 ## Companion MCP Server
 
-Use this data directly inside AI coding tools:
+Use this dataset directly inside AI coding tools:
 
 https://github.com/aithink001/lemgen-ai-design-mcp
 
-The MCP server adds:
-
-- `search_gallery`
-- `get_inspiration`
-- `enhance_prompt`
-- `list_models`
-- `prompt_tools`
-- `manage_preferences`
-- `generate_image`
-- `generate_video`
+The MCP server adds search, full inspiration lookup, model guidance, multilingual
+prompt tools, local preferences, and optional LemGen generation.
 
 ## Refresh
 
-This repository is exported from the LemGen application database:
+This dataset is exported from the LemGen application database:
 
 ```bash
 cd ../lemgen
 pnpm lemgen:mcp:maintain
 ```
 
-The exporter keeps public URLs on `https://lemgen.org` and runs a brand-clean
-scan before publishing.
+The export pipeline keeps public URLs on `https://lemgen.org`, verifies JSON
+shape, and runs a brand-clean scan before publishing.
 
 ## License
 
