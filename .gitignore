@@ -2,3 +2,12 @@
 node_modules/
 .tmp/
 *.log
+.env
+.env.local
+.env.development
+.env.production
+data/local.db
+.output/
+.nitro/
+src/paraglide/
+src/routeTree.gen.ts

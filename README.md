@@ -5,13 +5,13 @@
 <p align="center">
   <strong>A clean, source-linked prompt dataset for AI image/video agents, MCP servers, and creative products.</strong>
   <br>
-  <sub>4,533 curated prompts · GPT Image · Seedance · Nano Banana · Midjourney · image/video previews · LemGen source URLs</sub>
+  <sub>5,000 curated prompts · GPT Image · Seedance · Nano Banana · Midjourney · image/video previews · LemGen source URLs</sub>
 </p>
 
 <p align="center">
   <a href="https://github.com/aithink001/lemgen-trending-prompts/actions"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/aithink001/lemgen-trending-prompts/validate.yml?branch=main&style=flat-square"></a>
   <img alt="Dataset" src="https://img.shields.io/badge/Type-Prompt_Dataset-blue?style=flat-square">
-  <img alt="Prompts" src="https://img.shields.io/badge/Prompts-4,533-111?style=flat-square">
+  <img alt="Prompts" src="https://img.shields.io/badge/Prompts-5,000-111?style=flat-square">
   <a href="https://lemgen.org"><img alt="LemGen" src="https://img.shields.io/badge/Source-LemGen-111?style=flat-square"></a>
   <a href="LICENSE"><img alt="MIT" src="https://img.shields.io/badge/License-MIT-lightgrey?style=flat-square"></a>
 </p>
@@ -45,6 +45,13 @@ Use it for:
 - creative agent memory;
 - prompt packs, galleries, and SEO content pages.
 
+## Prompt Packs
+
+These hand-edited packs turn the larger dataset into narrow, reusable content
+assets for creators and ecommerce teams:
+
+- [Perfume product photography prompts](packs/zh/perfume-product-photography.md)
+
 ## Preview
 
 <p align="center">
@@ -64,18 +71,18 @@ Current snapshot:
 
 | Type | Count |
 | --- | ---: |
-| Image prompts | 2,593 |
-| Video prompts | 1,940 |
-| Total | 4,533 |
+| Image prompts | 3,264 |
+| Video prompts | 1,736 |
+| Total | 5,000 |
 
 Model coverage:
 
 | Model | Count |
 | --- | ---: |
-| GPT Image | 1,935 |
-| Seedance 2.0 | 1,940 |
-| Nano Banana Pro | 489 |
-| Midjourney | 104 |
+| GPT Image | 2,710 |
+| Seedance 2.0 | 1,736 |
+| Nano Banana Pro | 409 |
+| Midjourney | 80 |
 | Other image models | 65 |
 
 ## Schema

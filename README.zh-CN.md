@@ -5,13 +5,13 @@
 <p align="center">
   <strong>面向 AI 图片/视频 Agent、MCP Server 和创意产品的干净、可追溯提示词数据集。</strong>
   <br>
-  <sub>4,533 条精选 prompt · GPT Image · Seedance · Nano Banana · Midjourney · 图片/视频预览 · LemGen 来源 URL</sub>
+  <sub>5,000 条精选 prompt · GPT Image · Seedance · Nano Banana · Midjourney · 图片/视频预览 · LemGen 来源 URL</sub>
 </p>
 
 <p align="center">
   <a href="https://github.com/aithink001/lemgen-trending-prompts/actions"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/aithink001/lemgen-trending-prompts/validate.yml?branch=main&style=flat-square"></a>
   <img alt="Dataset" src="https://img.shields.io/badge/Type-Prompt_Dataset-blue?style=flat-square">
-  <img alt="Prompts" src="https://img.shields.io/badge/Prompts-4,533-111?style=flat-square">
+  <img alt="Prompts" src="https://img.shields.io/badge/Prompts-5,000-111?style=flat-square">
   <a href="https://lemgen.org"><img alt="LemGen" src="https://img.shields.io/badge/Source-LemGen-111?style=flat-square"></a>
   <a href="LICENSE"><img alt="MIT" src="https://img.shields.io/badge/License-MIT-lightgrey?style=flat-square"></a>
 </p>
@@ -41,6 +41,12 @@
 - 创意 Agent 记忆；
 - prompt packs、画廊和 SEO 内容页。
 
+## 提示词专题包
+
+这些专题包把大数据集整理成更窄、更容易直接复用的垂直资源：
+
+- [香水和护肤品商品图 AI 提示词包](packs/zh/perfume-product-photography.md)
+
 ## 预览
 
 <p align="center">
@@ -60,18 +66,18 @@ data/trending-prompts.json
 
 | 类型 | 数量 |
 | --- | ---: |
-| 图片 prompt | 2,593 |
-| 视频 prompt | 1,940 |
-| 总计 | 4,533 |
+| 图片 prompt | 3,264 |
+| 视频 prompt | 1,736 |
+| 总计 | 5,000 |
 
 模型覆盖：
 
 | 模型 | 数量 |
 | --- | ---: |
-| GPT Image | 1,935 |
-| Seedance 2.0 | 1,940 |
-| Nano Banana Pro | 489 |
-| Midjourney | 104 |
+| GPT Image | 2,710 |
+| Seedance 2.0 | 1,736 |
+| Nano Banana Pro | 409 |
+| Midjourney | 80 |
 | 其他图片模型 | 65 |
 
 ## Schema
